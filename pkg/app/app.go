@@ -52,19 +52,7 @@ func NewApp(config *config.AppConfig) (*App, error) {
 
 func (app *App) Run() error {
 	err := app.Gui.RunWithSubprocesses()
-
 	return err
-}
-
-// Close closes any resources
-func (app *App) Close() error {
-	for _, closer := range app.closers {
-		err := closer.Close()
-		if err != nil {
-			return err
-		}
-	}
-	return nil
 }
 
 type errorMapping struct {
